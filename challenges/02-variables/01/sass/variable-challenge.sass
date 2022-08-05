@@ -1,3 +1,7 @@
+$clr-white: #f8f7f7
+$clr-black: #201e1f
+$clr-red: #da3f0b
+
 *
   box-sizing: border-box
   margin: 0
@@ -6,6 +10,7 @@ body
   font-size: 1.75rem
   font-family: system-ui, sans-serif
   line-height: 1.6
+  background: $clr-black
 
   /* this is being used to center the content on the screen */
   display: grid
@@ -17,11 +22,31 @@ body
   gap: 0.75em
   width: min(90%, 60rem)
   padding: 2em
+  background: $clr-white
+
+  &__title
+    color: $clr-red
 
 .btn
   display: inline-block
   padding: 0.5em 1.5em
   text-decoration: none
+  border: 3px solid $clr-red
+  border-radius: 10px
+
+  &--primary
+    background: $clr-red
+    color: $clr-white
+
+  &--outline
+    background: $clr-white
+    color: $clr-red
+
+  &:hover,
+  &:focus
+    background: $clr-black
+    color: $clr-white
+    box-shadow: 0px 0px 8px 1px $clr-red
 
 .flex-group
   display: flex

@@ -5,40 +5,34 @@ $clr-secondary-500: hsl(253, 27%, 20%)
 $clr-accent-400: hsl(45, 82%, 65%)
 $clr-accent-500: hsl(45, 82%, 45%)
 
-body 
+body
   margin: 4rem 0 0
-  font: 
+  font:
     size: 1.25rem
     family: system-ui, sans-serif
-  
+
   text-align: center
 
-
-section 
+section
   padding-block: 3rem
 
-
-.container 
+.container
   width: min(100% - 4rem, 50rem)
   margin-inline: auto
 
-
-.surface-primary 
+.surface-primary
   background: $clr-primary-400
   color: white
 
-
-.surface-secondary 
+.surface-secondary
   background: $clr-secondary-400
   color: white
 
-
-.surface-accent 
+.surface-accent
   background: $clr-accent-400
   color: black
 
-
-.btn 
+.btn
   display: inline-block
   padding: 1em 2em
   cursor: pointer
@@ -47,8 +41,30 @@ section
   text-transform: uppercase
   //your code here
 
+  &:hover,
+  &:focus
+    background: inherit
+    color: inherit
+    outline: currentColor 2px solid
 
-.text-subdued 
+  .surface-primary &,
+  .surface-secondary &
+    background: white
+    color: black
+
+  .surface-accent &
+    color: white
+    background: black
+
+.text-subdued
   font-size: 1rem
-  // your code here
 
+  .surface-primary &
+    opacity: 0.8
+
+  .surface-secondary &
+    opacity: 0.7
+
+  .surface-accent &
+    opacity: 0.6
+  // your code here

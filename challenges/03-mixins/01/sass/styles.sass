@@ -2,10 +2,58 @@ body
   font-family: system-ui
   margin: 0
 
-
 .section-one,
 .section-two,
-.section-three 
+.section-three
   text-align: center
   padding: 10vh 0
 
+@mixin lin-grad($clr1, $clr2, $deg: -45deg)
+  background-image: linear-gradient($deg, $clr1, $clr2)
+
+.section
+  &-one
+    @include lin-grad(#e49b9b,#910c0c)
+  &-two
+    @include lin-grad(#910c0c,#170c91)
+  &-three
+    @include lin-grad(#170c91,#790c91)
+
+@mixin pseudo-underline($width: 100%,$height: 1px,$bg-color: rgb(0,0,0,.4),$marginBlock: 1em)
+  display: block
+  content: ''
+  width: $width
+  height: $height
+  background-color: $bg-color
+  margin-block: $marginBlock
+  margin-inline: auto
+
+.title
+  &::after
+    @include pseudo-underline($bg-color:black, $height:10px)
+
+@mixin ui-element($size, $color, $bg-color, $hover-color: $color, $hover-bg-color: $bg-color)
+  padding: $size calc($size * 3)
+  background-color: $bg-color
+  color: $color
+
+  &:hover,
+  &:focus
+    background-color: $hover-bg-color
+    color: $hover-color
+
+.button
+  &-one
+    @include ui-element(1em, #dedede, rgb(#000, 0.6), #dedede, rgb(#000, 0.8),)
+
+  &-two
+    @include ui-element(1em, #dedede, rgb(#000, 0.6), #dedede, rgb(#000, 0.8),)
+
+.badge
+  &-one
+    width: min-content
+    margin-inline: auto
+    @include ui-element(.5em, #dedede, rgb(#c2c2c2, 0.6))
+  &-two
+    display: inline-block
+    @include ui-element(.5em, #dedede, rgb(#c2c2c2, 0.6))

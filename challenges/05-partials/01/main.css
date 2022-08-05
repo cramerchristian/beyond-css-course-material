@@ -1,0 +1,17 @@
+.card {
+  font-size: 1.25rem;
+  color: #234;
+  position: relative;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  left: -4rem;
+  top: -4rem;
+  width: 100px;
+  aspect-ratio: 1;
+  border-left: 3px solid #234;
+  border-top: 3px solid #234;
+}
+
+/*# sourceMappingURL=main.css.map */

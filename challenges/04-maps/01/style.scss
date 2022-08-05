@@ -1,4 +1,6 @@
 @use "sass:map";
+@use "sass:meta";
+@use "sass:math";
 
 $breakpoints: (
   small: 30em,
@@ -10,13 +12,30 @@ $breakpoints: (
 @mixin mq($size) {
   $breakpoint: map.get($breakpoints, $size);
 
-  @media screen and (min-width: $breakpoint) {
-    @content;
+  @if $breakpoint {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  } @else if (meta.type-of($size) == 'number'){
+    
+    @if math.is-unitless($size){
+        @error 'The number you typed is unitless';
+    } @else {
+      $breakpoint: $size;
+      @media screen and (min-width: $breakpoint) {
+        @content;
+      }
+    }
+  } @else {
+    @error 'nahh bro, not found in the map'
   }
+
+  
 }
 
 body {
   // all of these should work
+
   @include mq(medium) {
     background: pink;
   }
@@ -28,10 +47,12 @@ body {
   }
 
   // these should fail, with an error telling me why
-  @include mq(reallysmall) {
-    background: yellow;
-  }
-  @include mq(5000) {
-    background: purple;
-  }
+
+  // @include mq(5000) {
+  //   background: purple;
+  // }
+  // @include mq(reallysmall) {
+  //   background: yellow;
+  // }
+  
 }

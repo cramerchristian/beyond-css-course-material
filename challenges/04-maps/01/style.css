@@ -1,0 +1,17 @@
+@media screen and (min-width: 45em) {
+  body {
+    background: pink;
+  }
+}
+@media screen and (min-width: 500px) {
+  body {
+    background: lightblue;
+  }
+}
+@media screen and (min-width: 100em) {
+  body {
+    background: #efefef;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
